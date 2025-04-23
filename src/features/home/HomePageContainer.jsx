@@ -7,7 +7,7 @@ const HomePageContainer = () => {
   );
 
   console.log(movies);
-  return <HomePage />;
+  return <HomePage movies={movies} />;
 };
 
 export default HomePageContainer;
