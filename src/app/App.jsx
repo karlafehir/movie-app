@@ -1,7 +1,12 @@
+import HomePageContainer from "../features/home/HomePageContainer";
 import "./App.css";
 
 function App() {
-  return <div>app</div>;
+  return (
+    <>
+      <HomePageContainer />
+    </>
+  );
 }
 
 export default App;
