@@ -1,4 +1,4 @@
-import MovieCardContaier from "../../components/MovieCardContainer";
+import MovieCardContaier from "../../components/movieCard/MovieCardContainer";
 
 const HomePage = ({ movies }) => {
   return (

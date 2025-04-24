@@ -1,4 +1,4 @@
-import { useFavoriteMovie } from "../hooks/useFavoriteMovie";
+import { useFavoriteMovie } from "../../hooks/useFavoriteMovie";
 import MovieCard from "./MovieCard";
 
 const MovieCardContaier = ({ movie }) => {
