@@ -1,13 +1,6 @@
 import { HeartFilled } from "@ant-design/icons";
-import { useFavoriteMovie } from "../hooks/useFavoriteMovie";
 
-const MovieCard = ({ movie }) => {
-  const { postData } = useFavoriteMovie(movie.id);
-
-  const handleClick = async () => {
-    await postData();
-  };
-
+const MovieCard = ({ movie, addToFavorites }) => {
   return (
     <div className="rounded-xl h-120 w-64 cursor-pointer bg-white/5">
       <img
@@ -19,7 +12,7 @@ const MovieCard = ({ movie }) => {
         <div className="font-semibold ">{movie.title}</div>
         <div className=" text-white/30">{movie.release_date}</div>
       </div>
-      <div onClick={handleClick}>
+      <div onClick={addToFavorites}>
         <HeartFilled />
       </div>
     </div>
