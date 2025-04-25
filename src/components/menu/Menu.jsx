@@ -15,7 +15,7 @@ const MenuComponent = () => {
   return (
     <div style={{ width: 256 }}>
       <Menu
-        className="h-screen"
+        className="h-screen w-3xs"
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"

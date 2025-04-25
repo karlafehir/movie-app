@@ -15,7 +15,7 @@ const MovieCard = ({ movie, addToFavorites }) => {
         <div className="font-semibold ">{movie.title}</div>
         <div className=" text-white/30">{movie.release_date}</div>
       </div>
-      <div onClick={addToFavorites} className="cursor-pointer">
+      <div onClick={addToFavorites} className="">
         <HeartFilled />
       </div>
     </div>
