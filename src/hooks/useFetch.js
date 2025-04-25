@@ -15,8 +15,11 @@ export const useFetch = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(url, options);
-      const data = response.data.results;
-      setData(data);
+      if (response.data.page) {
+        setData(response.data.results);
+      } else {
+        setData(response.data);
+      }
     };
 
     fetchData();
