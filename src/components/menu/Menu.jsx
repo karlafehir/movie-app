@@ -13,9 +13,10 @@ const items = [
 
 const MenuComponent = () => {
   return (
-    <div style={{ width: 256 }}>
+    <div>
       <Menu
-        className="h-screen w-3xs"
+        style={{ width: 300 }}
+        className="h-screen"
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"
