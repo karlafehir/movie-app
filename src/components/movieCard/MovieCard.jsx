@@ -1,23 +1,34 @@
-import { HeartFilled } from "@ant-design/icons";
+import { HeartFilled, StarFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie, addToFavorites }) => {
   return (
-    <div className="rounded-xl h-120 w-64  bg-white/5">
+    <div className="rounded-xl h-120 w-64">
       <Link to={`/movie/${movie.id}`} className="cursor-pointer">
         <img
-          className="object-cover rounded-t-lg"
+          className="object-cover rounded-lg"
           src={"https://image.tmdb.org/t/p/original" + movie.poster_path}
           alt={movie.title}
         />
       </Link>
-      <div className="pt-3 pb-4 pl-4">
-        <div className="font-semibold ">{movie.title}</div>
-        <div className=" text-white/30">{movie.release_date}</div>
+
+      <div className="pt-2 pb-4 pl-2">
+        <div>
+          <div className="font-bold">{movie.title}</div>
+        </div>
+
+        <div className="flex justify-between font-light text-gray-400">
+          <div>{movie.release_date}</div>
+          <div className="flex">
+            <StarFilled style={{ color: "yellow" }} />
+            <div>{movie.vote_average}/10</div>
+          </div>
+        </div>
       </div>
-      <div onClick={addToFavorites} className="">
+
+      {/* <div className="" onClick={addToFavorites}>
         <HeartFilled />
-      </div>
+      </div> */}
     </div>
   );
 };
