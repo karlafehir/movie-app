@@ -1,5 +1,11 @@
+import MovieCardLargeContaier from "../../components/movieCardLarge/MovieCardLargeContainer";
+
 const MovieDetails = ({ movie }) => {
-  return <div>details for movie {movie.title}</div>;
+  return (
+    <>
+      <MovieCardLargeContaier movie={movie} />
+    </>
+  );
 };
 
 export default MovieDetails;
