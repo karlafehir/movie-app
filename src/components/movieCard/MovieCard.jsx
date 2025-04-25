@@ -1,18 +1,21 @@
 import { HeartFilled } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie, addToFavorites }) => {
   return (
-    <div className="rounded-xl h-120 w-64 cursor-pointer bg-white/5">
-      <img
-        className="object-cover rounded-t-lg"
-        src={"https://image.tmdb.org/t/p/original" + movie.poster_path}
-        alt={movie.title}
-      />
+    <div className="rounded-xl h-120 w-64  bg-white/5">
+      <Link to={`/movie/${movie.id}`} className="cursor-pointer">
+        <img
+          className="object-cover rounded-t-lg"
+          src={"https://image.tmdb.org/t/p/original" + movie.poster_path}
+          alt={movie.title}
+        />
+      </Link>
       <div className="pt-3 pb-4 pl-4">
         <div className="font-semibold ">{movie.title}</div>
         <div className=" text-white/30">{movie.release_date}</div>
       </div>
-      <div onClick={addToFavorites}>
+      <div onClick={addToFavorites} className="cursor-pointer">
         <HeartFilled />
       </div>
     </div>

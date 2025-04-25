@@ -3,6 +3,7 @@ import FavoritesContainer from "../features/favorites/FavoritesContainer";
 import HomePageContainer from "../features/home/HomePageContainer";
 import MenuComponent from "../components/menu/Menu";
 import "./App.css";
+import MovieDetailsContainer from "../features/movieDetails/MovieDetailsContainer";
 
 function App() {
   return (
@@ -12,6 +13,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePageContainer />}></Route>
           <Route path="/favorites" element={<FavoritesContainer />}></Route>
+          <Route
+            path="/movie/:movieId"
+            element={<MovieDetailsContainer />}
+          ></Route>
         </Routes>
       </div>
     </Router>
