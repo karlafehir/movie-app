@@ -8,16 +8,15 @@ import MovieDetailsContainer from "../features/movieDetails/MovieDetailsContaine
 function App() {
   return (
     <Router>
-      <div className="flex flex-row">
+      <div className="flex flex-row h-screen">
         <MenuComponent />
-        <Routes>
-          <Route path="/" element={<HomePageContainer />}></Route>
-          <Route path="/favorites" element={<FavoritesContainer />}></Route>
-          <Route
-            path="/movie/:movieId"
-            element={<MovieDetailsContainer />}
-          ></Route>
-        </Routes>
+        <div className="flex-1 overflow-y-auto h-screen">
+          <Routes>
+            <Route path="/" element={<HomePageContainer />} />
+            <Route path="/favorites" element={<FavoritesContainer />} />
+            <Route path="/movie/:movieId" element={<MovieDetailsContainer />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

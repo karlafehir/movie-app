@@ -13,10 +13,9 @@ const items = [
 
 const MenuComponent = () => {
   return (
-    <div>
+    <div className="w-72 h-screen overflow-hidden flex-shrink-0">
       <Menu
-        style={{ width: 300 }}
-        className="h-screen"
+        className="h-full"
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"
