@@ -1,10 +1,9 @@
 import { HeartFilled } from "@ant-design/icons";
-import { Link } from "react-router-dom";
 
 const MovieCardLarge = ({ movie, addToFavorites }) => {
   return (
     <>
-      <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl p-8 w-1/2 h-100">
+      <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl p-8 w-full h-120">
         <img
           src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path}
           alt={movie.title}

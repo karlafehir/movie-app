@@ -6,7 +6,6 @@ const HomePageContainer = () => {
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
   );
 
-  console.log(movies);
   return <HomePage movies={movies} />;
 };
 
