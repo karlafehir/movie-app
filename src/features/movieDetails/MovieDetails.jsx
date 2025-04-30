@@ -1,11 +1,11 @@
-import ActorCard from "../../components/actorCard/actorCard";
-import MovieCardLargeContaier from "../../components/movieCardLarge/MovieCardLargeContainer";
+import ActorCard from "../../components/cards/actorCard";
+import MovieCardLarge from "../../components/cards/MovieCardLarge";
 
 const MovieDetails = ({ movie, actors }) => {
   return (
     <>
       <div className="p-10">
-        <MovieCardLargeContaier movie={movie} />
+        <MovieCardLarge movie={movie} />
         {movie.genres && (
           <div className="flex gap-4 p-4">
             {movie.genres.map((genre) => (

@@ -1,6 +1,13 @@
 import { HeartFilled } from "@ant-design/icons";
+import { useFavoriteMovie } from "../../hooks/useFavoriteMovie";
 
-const MovieCardLarge = ({ movie, addToFavorites }) => {
+const MovieCardLarge = ({ movie }) => {
+  const { postData } = useFavoriteMovie(movie.id);
+
+  const addToFavorites = async () => {
+    await postData();
+  };
+
   return (
     <>
       <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl p-8 w-full h-120">

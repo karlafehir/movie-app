@@ -1,10 +1,10 @@
-import MovieCardContaier from "../../components/movieCard/MovieCardContainer";
+import MovieCard from "../../components/cards/MovieCard";
 
 const HomePage = ({ movies }) => {
   return (
     <div className="flex gap-4 flex-wrap">
       {movies.map((movie) => (
-        <MovieCardContaier key={movie.id} movie={movie} />
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );

@@ -1,7 +1,7 @@
 import { HeartFilled, StarFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ movie, addToFavorites }) => {
+const MovieCard = ({ movie }) => {
   return (
     <div className="rounded-xl h-120 w-64">
       <Link to={`/movie/${movie.id}`} className="cursor-pointer">
