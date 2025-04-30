@@ -1,7 +1,11 @@
 import ActorCard from "../../components/cards/actorCard";
 import MovieCardLarge from "../../components/cards/MovieCardLarge";
+import { useDispatch } from "react-redux";
+import { add } from "../../store/addFavoriteGenreSlice";
 
 const MovieDetails = ({ movie, actors }) => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="p-10">
@@ -10,6 +14,9 @@ const MovieDetails = ({ movie, actors }) => {
           <div className="flex gap-4 py-4">
             {movie.genres.map((genre) => (
               <div
+                onClick={() => {
+                  dispatch(add(genre.name));
+                }}
                 key={genre.id}
                 className="border-2 border-solid px-3 py-2 rounded-4xl w-max text-white/40"
               >
