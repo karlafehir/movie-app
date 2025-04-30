@@ -7,17 +7,18 @@ const MovieDetails = ({ movie, actors }) => {
       <div className="p-10">
         <MovieCardLarge movie={movie} />
         {movie.genres && (
-          <div className="flex gap-4 p-4">
+          <div className="flex gap-4 py-4">
             {movie.genres.map((genre) => (
               <div
                 key={genre.id}
-                className="border-2 border-solid px-3 py-2 rounded-4xl w-max"
+                className="border-2 border-solid px-3 py-2 rounded-4xl w-max text-white/40"
               >
                 {genre.name}
               </div>
             ))}
           </div>
         )}
+        <div className="font-semibold text-xl py-2">Cast:</div>
         <div className="flex flex-wrap gap-x-6">
           {actors &&
             actors.slice(0, 10).map((actor) => (
