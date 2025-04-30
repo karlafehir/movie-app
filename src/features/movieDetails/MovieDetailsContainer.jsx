@@ -9,7 +9,13 @@ const MovieDetailsContainer = () => {
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
   );
 
-  return <MovieDetails movie={movie} />;
+  const credits = useFetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`
+  );
+
+  const actors = credits.cast;
+
+  return <MovieDetails movie={movie} actors={actors} />;
 };
 
 export default MovieDetailsContainer;
