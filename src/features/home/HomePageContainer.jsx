@@ -1,12 +1,10 @@
-import { useFetch } from "../../hooks/useFetch";
 import HomePage from "./HomePage";
+import { useGetPopularMoviesQuery } from "../../store/movieApiService";
 
 const HomePageContainer = () => {
-  const movies = useFetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
-  );
+  const { isLoading, data } = useGetPopularMoviesQuery();
 
-  return <HomePage movies={movies} />;
+  return <HomePage movies={data} />;
 };
 
 export default HomePageContainer;

@@ -7,11 +7,13 @@ const HomePage = ({ movies }) => {
   return (
     <>
       <div>favorite genre: {favoriteGenre}</div>
-      <div className="flex gap-4 flex-wrap">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </div>
+      {movies && (
+        <div className="flex gap-4 flex-wrap">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
+      )}
     </>
   );
 };
