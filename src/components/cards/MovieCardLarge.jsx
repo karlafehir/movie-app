@@ -1,12 +1,13 @@
 import { HeartFilled } from "@ant-design/icons";
-import { useFavoriteMovie } from "../../hooks/useFavoriteMovie";
+import { useAddFavoriteMovie } from "../../hooks/useAddFavoriteMovie";
 
 const MovieCardLarge = ({ movie }) => {
-  const { postData } = useFavoriteMovie(movie.id);
+  const { postData } = useAddFavoriteMovie(movie.id);
 
   const addToFavorites = async () => {
     await postData();
   };
+  useAddFavoriteMovie;
 
   return (
     <>
