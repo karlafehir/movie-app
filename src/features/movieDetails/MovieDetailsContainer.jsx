@@ -3,6 +3,7 @@ import MovieDetails from "./MovieDetails";
 import {
   useGetMovieActorsQuery,
   useGetMovieDetailsQuery,
+  useGetMovieReviewsQuery,
 } from "../../store/movieApiService";
 
 const MovieDetailsContainer = () => {
@@ -10,8 +11,9 @@ const MovieDetailsContainer = () => {
 
   const { data: movie } = useGetMovieDetailsQuery(movieId);
   const { data: actors } = useGetMovieActorsQuery(movieId);
+  const { data: reviews } = useGetMovieReviewsQuery(movieId);
 
-  return <MovieDetails movie={movie} actors={actors} />;
+  return <MovieDetails movie={movie} actors={actors} reviews={reviews} />;
 };
 
 export default MovieDetailsContainer;

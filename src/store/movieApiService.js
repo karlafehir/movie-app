@@ -30,6 +30,12 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response.cast,
     }),
+    getMovieReviews: builder.query({
+      query: (id) => ({
+        url: `movie/${id}/reviews?language=en-US&page=1`,
+      }),
+      transformResponse: (response) => response.results,
+    }),
   }),
 });
 
@@ -38,4 +44,5 @@ export const {
   useGetFavoriteMoviesQuery,
   useGetMovieDetailsQuery,
   useGetMovieActorsQuery,
+  useGetMovieReviewsQuery,
 } = movieApi;
