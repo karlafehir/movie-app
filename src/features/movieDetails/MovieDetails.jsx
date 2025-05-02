@@ -9,10 +9,10 @@ const MovieDetails = ({ movie, actors, reviews }) => {
 
   return (
     <>
-      <div className="p-10">
+      <div className="p-12 flex flex-col gap-10">
         {movie && <MovieCardLarge movie={movie} />}
         {movie && movie.genres && (
-          <div className="flex gap-4 py-4">
+          <div className="flex gap-4">
             {movie.genres.map((genre) => (
               <div
                 onClick={() => {
@@ -26,7 +26,10 @@ const MovieDetails = ({ movie, actors, reviews }) => {
             ))}
           </div>
         )}
-        <div className="font-semibold text-xl py-2">Cast:</div>
+
+        <div className="font-semibold text-2xl pl-3 border-l-4 border-white mt-8">
+          Cast:
+        </div>
         <div className="flex flex-wrap gap-x-6">
           {actors &&
             actors.slice(0, 10).map((actor) => (
@@ -35,15 +38,18 @@ const MovieDetails = ({ movie, actors, reviews }) => {
               </div>
             ))}
         </div>
-      </div>
-      <div className="font-semibold text-xl py-2">Reviews:</div>
-      <div>
-        {reviews &&
-          reviews.map((review) => (
-            <div key={review.id} className="pb-4">
-              <ReviewCard review={review} />
-            </div>
-          ))}
+
+        <div className="font-semibold text-xl pl-3 border-l-4 border-white mt-8">
+          Reviews:
+        </div>
+        <div className="">
+          {reviews &&
+            reviews.map((review) => (
+              <div key={review.id} className="pb-4">
+                <ReviewCard review={review} />
+              </div>
+            ))}
+        </div>
       </div>
     </>
   );
