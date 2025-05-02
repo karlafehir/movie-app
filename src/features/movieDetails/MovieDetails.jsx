@@ -9,8 +9,8 @@ const MovieDetails = ({ movie, actors }) => {
   return (
     <>
       <div className="p-10">
-        <MovieCardLarge movie={movie} />
-        {movie.genres && (
+        {movie && <MovieCardLarge movie={movie} />}
+        {movie && movie.genres && (
           <div className="flex gap-4 py-4">
             {movie.genres.map((genre) => (
               <div

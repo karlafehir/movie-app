@@ -19,7 +19,23 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response.results,
     }),
+    getMovieDetails: builder.query({
+      query: (id) => ({
+        url: `movie/${id}?language=en-US`,
+      }),
+    }),
+    getMovieActors: builder.query({
+      query: (id) => ({
+        url: `movie/${id}/credits?language=en-US`,
+      }),
+      transformResponse: (response) => response.cast,
+    }),
   }),
 });
 
-export const { useGetPopularMoviesQuery, useGetFavoriteMoviesQuery } = movieApi;
+export const {
+  useGetPopularMoviesQuery,
+  useGetFavoriteMoviesQuery,
+  useGetMovieDetailsQuery,
+  useGetMovieActorsQuery,
+} = movieApi;

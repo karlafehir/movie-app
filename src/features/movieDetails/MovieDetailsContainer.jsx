@@ -1,19 +1,15 @@
 import { useParams } from "react-router-dom";
 import MovieDetails from "./MovieDetails";
-import { useFetch } from "../../hooks/useFetch";
+import {
+  useGetMovieActorsQuery,
+  useGetMovieDetailsQuery,
+} from "../../store/movieApiService";
 
 const MovieDetailsContainer = () => {
   const { movieId } = useParams();
 
-  const movie = useFetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`
-  );
-
-  const credits = useFetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`
-  );
-
-  const actors = credits.cast;
+  const { data: movie } = useGetMovieDetailsQuery(movieId);
+  const { data: actors } = useGetMovieActorsQuery(movieId);
 
   return <MovieDetails movie={movie} actors={actors} />;
 };
