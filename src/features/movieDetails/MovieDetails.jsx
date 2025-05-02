@@ -2,12 +2,10 @@ import ActorCard from "../../components/cards/actorCard";
 import MovieCardLarge from "../../components/cards/MovieCardLarge";
 import { useDispatch } from "react-redux";
 import { add } from "../../store/addFavoriteGenreSlice";
-import { Avatar, Card } from "antd";
-import { format } from "date-fns";
+import ReviewCard from "../../components/cards/reviewCard";
 
 const MovieDetails = ({ movie, actors, reviews }) => {
   const dispatch = useDispatch();
-  const { Meta } = Card;
 
   return (
     <>
@@ -43,17 +41,7 @@ const MovieDetails = ({ movie, actors, reviews }) => {
         {reviews &&
           reviews.map((review) => (
             <div key={review.id} className="pb-4">
-              <Card>
-                <Meta
-                  avatar={
-                    <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
-                  }
-                  title={review.author}
-                  description={format(review.created_at, "dd.MM.yyyy.")}
-                />
-                <p className="">{review.author_details.rating}</p>
-                <p className="">{review.content}</p>
-              </Card>
+              <ReviewCard review={review} />
             </div>
           ))}
       </div>
