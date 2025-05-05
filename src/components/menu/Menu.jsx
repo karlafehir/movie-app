@@ -1,4 +1,8 @@
-import { DesktopOutlined, HeartOutlined } from "@ant-design/icons";
+import {
+  DesktopOutlined,
+  HeartOutlined,
+  StarOutlined,
+} from "@ant-design/icons";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
 
@@ -8,6 +12,11 @@ const items = [
     key: "2",
     icon: <HeartOutlined />,
     label: <Link to="/favorites">Favorites</Link>,
+  },
+  {
+    key: "3",
+    icon: <StarOutlined />,
+    label: <Link to="/genres">Genres</Link>,
   },
 ];
 

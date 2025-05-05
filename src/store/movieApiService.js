@@ -49,6 +49,12 @@ export const movieApi = createApi({
       transformResponse: (response) =>
         response.results.find((response) => response.type == "Trailer"),
     }),
+    searchMoviesByGenre: builder.query({
+      query: (id) => ({
+        url: `discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}`,
+      }),
+      transformResponse: (response) => response.results,
+    }),
   }),
 });
 
@@ -60,4 +66,5 @@ export const {
   useGetMovieReviewsQuery,
   useSearchMoviesQuery,
   useGetMovieTrailerQuery,
+  useSearchMoviesByGenreQuery,
 } = movieApi;
