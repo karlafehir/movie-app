@@ -36,6 +36,12 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response.results,
     }),
+    searchMovies: builder.query({
+      query: (query) => ({
+        url: `search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+      }),
+      transformResponse: (response) => response.results,
+    }),
   }),
 });
 
@@ -45,4 +51,5 @@ export const {
   useGetMovieDetailsQuery,
   useGetMovieActorsQuery,
   useGetMovieReviewsQuery,
+  useSearchMoviesQuery,
 } = movieApi;
