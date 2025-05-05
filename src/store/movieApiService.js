@@ -42,6 +42,13 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response.results,
     }),
+    getMovieTrailer: builder.query({
+      query: (id) => ({
+        url: `movie/${id}/videos?language=en-US`,
+      }),
+      transformResponse: (response) =>
+        response.results.find((response) => response.type == "Trailer"),
+    }),
   }),
 });
 
@@ -52,4 +59,5 @@ export const {
   useGetMovieActorsQuery,
   useGetMovieReviewsQuery,
   useSearchMoviesQuery,
+  useGetMovieTrailerQuery,
 } = movieApi;

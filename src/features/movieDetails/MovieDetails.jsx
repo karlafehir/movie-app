@@ -4,13 +4,13 @@ import { useDispatch } from "react-redux";
 import { add } from "../../store/addFavoriteGenreSlice";
 import ReviewCard from "../../components/cards/reviewCard";
 
-const MovieDetails = ({ movie, actors, reviews }) => {
+const MovieDetails = ({ movie, actors, reviews, watchTrailer }) => {
   const dispatch = useDispatch();
 
   return (
     <>
       <div className="m-12 flex flex-col gap-10">
-        {movie && <MovieCardLarge movie={movie} />}
+        {movie && <MovieCardLarge movie={movie} watchTrailer={watchTrailer} />}
         {movie && movie.genres && (
           <div className="flex gap-4">
             {movie.genres.map((genre) => (

@@ -1,7 +1,7 @@
 import { HeartFilled } from "@ant-design/icons";
 import { useAddFavoriteMovie } from "../../hooks/useAddFavoriteMovie";
 
-const MovieCardLarge = ({ movie }) => {
+const MovieCardLarge = ({ movie, watchTrailer }) => {
   const { postData } = useAddFavoriteMovie(movie.id);
 
   const addToFavorites = async () => {
@@ -25,7 +25,10 @@ const MovieCardLarge = ({ movie }) => {
               {movie.overview}
             </div>
             <div className="flex justify-between mt-4">
-              <div className="border-2 border-solid px-4 py-2 rounded-4xl cursor-pointer">
+              <div
+                className="border-2 border-solid px-4 py-2 rounded-4xl cursor-pointer  hover:bg-orange-500 hover:text-black hover:border-orange-500 transition duration-300 ease-in-out"
+                onClick={watchTrailer}
+              >
                 Watch Trailer
               </div>
               <div
