@@ -4,20 +4,37 @@ import HomePageContainer from "../features/home/HomePageContainer";
 import MenuComponent from "../components/menu/Menu";
 import "./App.css";
 import MovieDetailsContainer from "../features/movieDetails/MovieDetailsContainer";
+import { ConfigProvider, theme } from "antd";
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-row h-screen">
-        <MenuComponent />
-        <div className="flex-1 overflow-y-auto h-screen">
-          <Routes>
-            <Route path="/" element={<HomePageContainer />} />
-            <Route path="/favorites" element={<FavoritesContainer />} />
-            <Route path="/movie/:movieId" element={<MovieDetailsContainer />} />
-          </Routes>
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+          token: {
+            colorPrimary: "#ff5100",
+            colorBgBase: "rgb(255,255,255, 0.3)",
+            borderRadius: 8,
+            lineWidth: 1,
+            colorBgContainer: "rgb(255,255,255, 0.1)",
+          },
+        }}
+      >
+        <div className="flex flex-row h-screen">
+          <MenuComponent />
+          <div className="flex-1 overflow-y-auto h-screen">
+            <Routes>
+              <Route path="/" element={<HomePageContainer />} />
+              <Route path="/favorites" element={<FavoritesContainer />} />
+              <Route
+                path="/movie/:movieId"
+                element={<MovieDetailsContainer />}
+              />
+            </Routes>
+          </div>
         </div>
-      </div>
+      </ConfigProvider>
     </Router>
   );
 }
