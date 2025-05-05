@@ -18,7 +18,6 @@ const MovieDetailsContainer = () => {
   const watchTrailer = () => {
     const trailerLink = `https://www.youtube.com/watch?v=${movieTrailer.key}`;
     window.open(trailerLink, "_blank");
-    console.log("open link", trailerLink);
   };
 
   return (

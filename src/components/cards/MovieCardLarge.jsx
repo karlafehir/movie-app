@@ -26,13 +26,13 @@ const MovieCardLarge = ({ movie, watchTrailer }) => {
             </div>
             <div className="flex justify-between mt-4">
               <div
-                className="border-2 border-solid px-4 py-2 rounded-4xl cursor-pointer  hover:bg-orange-500 hover:text-black hover:border-orange-500 transition duration-300 ease-in-out"
+                className="border-2 border-solid px-4 py-2 rounded-4xl cursor-pointer hover-btn"
                 onClick={watchTrailer}
               >
                 Watch Trailer
               </div>
               <div
-                className="border-2 border-solid px-3 py-2 rounded-4xl cursor-pointer"
+                className="border-2 border-solid px-3 py-2 rounded-4xl cursor-pointer hover-btn"
                 onClick={addToFavorites}
               >
                 <HeartFilled />
