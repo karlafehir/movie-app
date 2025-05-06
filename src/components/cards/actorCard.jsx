@@ -1,6 +1,6 @@
 const ActorCard = ({ actor }) => {
   return (
-    <div className="rounded-xl w-30">
+    <div className="rounded-xl w-30 h-64">
       <img
         className="object-cover rounded-lg"
         src={"https://image.tmdb.org/t/p/original" + actor.profile_path}
