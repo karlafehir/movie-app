@@ -24,7 +24,7 @@ function App() {
       >
         <div className="flex flex-row h-screen">
           <MenuComponent />
-          <div className="flex-1 overflow-y-auto h-screen">
+          <div className="flex-1 overflow-y-auto h-screen p-10">
             <Routes>
               <Route path="/" element={<HomePageContainer />} />
               <Route path="/favorites" element={<FavoritesContainer />} />

@@ -55,6 +55,12 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response.results,
     }),
+    getMovieGenres: builder.query({
+      query: () => ({
+        url: `genre/movie/list?language=en`,
+      }),
+      transformResponse: (response) => response.genres,
+    }),
   }),
 });
 
@@ -67,4 +73,5 @@ export const {
   useSearchMoviesQuery,
   useGetMovieTrailerQuery,
   useSearchMoviesByGenreQuery,
+  useGetMovieGenresQuery,
 } = movieApi;

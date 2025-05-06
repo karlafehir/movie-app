@@ -1,18 +1,14 @@
-import { useSearchMoviesByGenreQuery } from "../../store/movieApiService";
-import { useDispatch } from "react-redux";
-import { search } from "../../store/searchMoviesSlice";
-import HomePage from "../home/HomePage";
+import {
+  useSearchMoviesByGenreQuery,
+  useGetMovieGenresQuery,
+} from "../../store/movieApiService";
+import GenresPage from "./GenresPage";
 
 const GenresPageContainer = () => {
   const { data: movies } = useSearchMoviesByGenreQuery(28);
+  const { data: movieGenres } = useGetMovieGenresQuery();
 
-  const dispatch = useDispatch();
-
-  const onSearch = (value, _e) => {
-    dispatch(search(value));
-  };
-
-  return <HomePage movies={movies} onSearch={onSearch} />;
+  return <GenresPage movies={movies} movieGenres={movieGenres} />;
 };
 
 export default GenresPageContainer;
