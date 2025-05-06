@@ -1,6 +1,7 @@
 import ActorCard from "../../components/cards/actorCard";
+import { Pagination } from "antd";
 
-const ActorsPage = ({ actors }) => {
+const ActorsPage = ({ actors, onPageChange }) => {
   return (
     <>
       <div className="flex flex-wrap gap-x-6">
@@ -11,6 +12,12 @@ const ActorsPage = ({ actors }) => {
             </div>
           ))}
       </div>
+      <Pagination
+        align="center"
+        defaultCurrent={1}
+        total={50}
+        onChange={onPageChange}
+      />
     </>
   );
 };

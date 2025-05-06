@@ -62,8 +62,8 @@ export const movieApi = createApi({
       transformResponse: (response) => response.genres,
     }),
     getPopularActors: builder.query({
-      query: () => ({
-        url: `person/popular?language=en-US&page=1`,
+      query: (page) => ({
+        url: `person/popular?language=en-US&page=${page}`,
       }),
       transformResponse: (response) =>
         response.results.filter(
