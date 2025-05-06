@@ -70,6 +70,12 @@ export const movieApi = createApi({
           (result) => result.known_for_department === "Acting"
         ),
     }),
+    searchActors: builder.query({
+      query: (query) => ({
+        url: `search/person?query=${query}&include_adult=false&language=en-US&page=1`,
+      }),
+      transformResponse: (response) => response.results,
+    }),
   }),
 });
 
@@ -84,4 +90,5 @@ export const {
   useSearchMoviesByGenreQuery,
   useGetMovieGenresQuery,
   useGetPopularActorsQuery,
+  useSearchActorsQuery,
 } = movieApi;
