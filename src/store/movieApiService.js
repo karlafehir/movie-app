@@ -61,6 +61,15 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response.genres,
     }),
+    getPopularActors: builder.query({
+      query: () => ({
+        url: `person/popular?language=en-US&page=1`,
+      }),
+      transformResponse: (response) =>
+        response.results.filter(
+          (result) => result.known_for_department === "Acting"
+        ),
+    }),
   }),
 });
 
@@ -74,4 +83,5 @@ export const {
   useGetMovieTrailerQuery,
   useSearchMoviesByGenreQuery,
   useGetMovieGenresQuery,
+  useGetPopularActorsQuery,
 } = movieApi;

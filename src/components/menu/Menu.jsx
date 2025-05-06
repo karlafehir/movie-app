@@ -18,6 +18,11 @@ const items = [
     icon: <StarOutlined />,
     label: <Link to="/genres">Genres</Link>,
   },
+  {
+    key: "4",
+    icon: <StarOutlined />,
+    label: <Link to="/actors">Actors</Link>,
+  },
 ];
 
 const MenuComponent = () => {
