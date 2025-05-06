@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   useSearchMoviesByGenreQuery,
   useGetMovieGenresQuery,
@@ -5,10 +6,21 @@ import {
 import GenresPage from "./GenresPage";
 
 const GenresPageContainer = () => {
-  const { data: movies } = useSearchMoviesByGenreQuery(28);
+  const [genreId, setGenreId] = useState(28);
+  const { data: movies } = useSearchMoviesByGenreQuery(genreId);
   const { data: movieGenres } = useGetMovieGenresQuery();
 
-  return <GenresPage movies={movies} movieGenres={movieGenres} />;
+  const handleGenreChange = (e) => {
+    setGenreId(e.target.value);
+  };
+
+  return (
+    <GenresPage
+      movies={movies}
+      movieGenres={movieGenres}
+      handleGenreChange={handleGenreChange}
+    />
+  );
 };
 
 export default GenresPageContainer;
