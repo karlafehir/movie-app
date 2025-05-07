@@ -1,7 +1,13 @@
 import HomePage from "../home/HomePage";
 import { Radio } from "antd";
+import { Pagination } from "antd";
 
-const GenresPage = ({ movies, movieGenres, handleGenreChange }) => {
+const GenresPage = ({
+  movies,
+  movieGenres,
+  handleGenreChange,
+  onPageChange,
+}) => {
   return (
     <>
       {movieGenres && (
@@ -21,7 +27,13 @@ const GenresPage = ({ movies, movieGenres, handleGenreChange }) => {
           </Radio.Group>
         </div>
       )}
-      <HomePage movies={movies} />;
+      {movies && <HomePage movies={movies} />}
+      <Pagination
+        align="center"
+        defaultCurrent={1}
+        total={50}
+        onChange={onPageChange}
+      />
     </>
   );
 };
