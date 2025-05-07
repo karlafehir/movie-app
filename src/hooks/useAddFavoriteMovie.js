@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-export const useAddFavoriteMovie = (movieId) => {
+export const useAddFavoriteMovie = (movieId, isFavorite) => {
   const options = {
     method: "POST",
     headers: {
@@ -11,7 +11,7 @@ export const useAddFavoriteMovie = (movieId) => {
     body: JSON.stringify({
       media_id: movieId,
       media_type: "movie",
-      favorite: true,
+      favorite: isFavorite,
     }),
   };
 
