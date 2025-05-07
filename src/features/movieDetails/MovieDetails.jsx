@@ -9,7 +9,7 @@ const MovieDetails = ({ movie, actors, reviews, watchTrailer }) => {
 
   return (
     <>
-      <div className="m-12 flex flex-col gap-10">
+      <div className="flex flex-col gap-10">
         {movie && <MovieCardLarge movie={movie} watchTrailer={watchTrailer} />}
         {movie && movie.genres && (
           <div className="flex gap-4">
