@@ -55,7 +55,9 @@ const MovieDetails = ({ movie, actors, reviews, watchTrailer, isFavorite }) => {
                 <ReviewCard review={review} />
               </div>
             ))}
-          {reviews.length == 0 && <p className="text-gray-500">No reviews </p>}
+          {reviews && reviews.length == 0 && (
+            <p className="text-gray-500">No reviews </p>
+          )}
         </div>
       </div>
     </>
