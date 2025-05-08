@@ -10,10 +10,6 @@ const GenresPage = ({
   onPageChange,
   isFetching,
 }) => {
-  if (isFetching) {
-    return <Spinner />;
-  }
-
   return (
     <>
       {movieGenres && (
@@ -33,7 +29,7 @@ const GenresPage = ({
           </Radio.Group>
         </div>
       )}
-      {movies && <HomePage movies={movies} />}
+      {isFetching ? <Spinner /> : <HomePage movies={movies} />}
       <Pagination
         align="center"
         defaultCurrent={1}
