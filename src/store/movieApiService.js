@@ -8,6 +8,7 @@ export const movieApi = createApi({
       Authorization: import.meta.env.REACT_APP_API_KEY,
     },
   }),
+  tagTypes: ["FavoriteMovies"],
   endpoints: (builder) => ({
     getPopularMovies: builder.query({
       query: () => ({ url: "movie/popular?language=en-US&page=1" }),
@@ -18,6 +19,19 @@ export const movieApi = createApi({
         url: "account/21966785/favorite/movies?language=en-US&page=1&sort_by=created_at.asc",
       }),
       transformResponse: (response) => response.results,
+      providesTags: ["FavoriteMovies"],
+    }),
+    addFavoriteMovie: builder.mutation({
+      query: ({ movieId, isFavorite }) => ({
+        url: `account/21966785/favorite`,
+        method: "POST",
+        body: {
+          media_id: movieId,
+          media_type: "movie",
+          favorite: isFavorite,
+        },
+      }),
+      invalidatesTags: ["FavoriteMovies"],
     }),
     getMovieDetails: builder.query({
       query: (id) => ({
@@ -82,6 +96,7 @@ export const movieApi = createApi({
 export const {
   useGetPopularMoviesQuery,
   useGetFavoriteMoviesQuery,
+  useAddFavoriteMovieMutation,
   useGetMovieDetailsQuery,
   useGetMovieActorsQuery,
   useGetMovieReviewsQuery,

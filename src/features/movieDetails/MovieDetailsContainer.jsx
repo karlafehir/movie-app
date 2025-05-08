@@ -7,7 +7,7 @@ import {
   useGetMovieReviewsQuery,
   useGetMovieTrailerQuery,
 } from "../../store/movieApiService";
-import { useState } from "react";
+import { useMemo } from "react";
 
 const MovieDetailsContainer = () => {
   const { movieId } = useParams();
@@ -16,21 +16,21 @@ const MovieDetailsContainer = () => {
   const { data: actors } = useGetMovieActorsQuery(movieId);
   const { data: reviews } = useGetMovieReviewsQuery(movieId);
   const { data: movieTrailer } = useGetMovieTrailerQuery(movieId);
-  let [isFavorite, setFavorite] = useState(true);
+  const { data: favoriteMovies } = useGetFavoriteMoviesQuery();
 
   const watchTrailer = () => {
     const trailerLink = `https://www.youtube.com/watch?v=${movieTrailer.key}`;
     window.open(trailerLink, "_blank");
   };
-  const { data: favoriteMovies } = useGetFavoriteMoviesQuery();
 
-  if (favoriteMovies) {
-    isFavorite =
-      favoriteMovies.find((favoriteMovie) => favoriteMovie.id == movieId) ??
-      false;
-  }
-
-  console.log(isFavorite);
+  const isFavorite = useMemo(() => {
+    if (!favoriteMovies || !movieId) {
+      return false;
+    }
+    return favoriteMovies.some(
+      (favoriteMovie) => favoriteMovie.id === parseInt(movieId)
+    );
+  }, [favoriteMovies, movieId]);
 
   return (
     <MovieDetails

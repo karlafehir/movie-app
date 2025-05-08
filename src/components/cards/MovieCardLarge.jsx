@@ -1,13 +1,12 @@
 import { HeartFilled } from "@ant-design/icons";
-import { useAddFavoriteMovie } from "../../hooks/useAddFavoriteMovie";
+import { useAddFavoriteMovieMutation } from "../../store/movieApiService";
 
 const MovieCardLarge = ({ movie, watchTrailer, isFavorite }) => {
-  const { postData } = useAddFavoriteMovie(movie.id, !isFavorite);
+  const [addFavoriteMovie, { isLoading }] = useAddFavoriteMovieMutation();
 
   const addToFavorites = async () => {
-    await postData();
+    addFavoriteMovie({ movieId: movie.id, isFavorite: !isFavorite });
   };
-  useAddFavoriteMovie;
 
   return (
     <>
@@ -34,6 +33,7 @@ const MovieCardLarge = ({ movie, watchTrailer, isFavorite }) => {
               <div
                 className={` ${isFavorite ? "filled-btn" : "hover-btn"}`}
                 onClick={addToFavorites}
+                disabled={isLoading}
               >
                 <HeartFilled />
               </div>
