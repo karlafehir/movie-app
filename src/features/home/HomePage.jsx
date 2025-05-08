@@ -1,19 +1,20 @@
 import MovieCard from "../../components/cards/MovieCard";
 import { Input } from "antd";
 
-const HomePage = ({ movies, onSearch }) => {
+const HomePage = ({ movies, onSearch, showSearch }) => {
   const { Search } = Input;
 
   return (
     <>
-      <Search
-        placeholder="Search movies by title"
-        onSearch={onSearch}
-        style={{ width: 300 }}
-      />
-
+      {showSearch && (
+        <Search
+          placeholder="Search movies by title"
+          onSearch={onSearch}
+          style={{ width: 300 }}
+        />
+      )}
       {movies && (
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex gap-4 flex-wrap mt-8">
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}

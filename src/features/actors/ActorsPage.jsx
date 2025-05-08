@@ -12,7 +12,7 @@ const ActorsPage = ({ actors, onPageChange, onSearch }) => {
         onSearch={onSearch}
         style={{ width: 300 }}
       />
-      <div className="flex flex-wrap gap-x-6">
+      <div className="flex flex-wrap gap-x-6 mt-8">
         {actors &&
           actors.map((actor) => (
             <div key={actor.id}>

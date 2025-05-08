@@ -19,7 +19,9 @@ const HomePageContainer = () => {
   const moviesToDisplay =
     searchedMovies?.length === 0 ? movies : searchedMovies;
 
-  return <HomePage movies={moviesToDisplay} onSearch={onSearch} />;
+  return (
+    <HomePage movies={moviesToDisplay} onSearch={onSearch} showSearch={true} />
+  );
 };
 
 export default HomePageContainer;
