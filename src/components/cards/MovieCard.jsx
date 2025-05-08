@@ -1,4 +1,4 @@
-import { HeartFilled, StarFilled } from "@ant-design/icons";
+import { StarFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
@@ -25,10 +25,6 @@ const MovieCard = ({ movie }) => {
           </div>
         </div>
       </div>
-
-      {/* <div className="" onClick={addToFavorites}>
-        <HeartFilled />
-      </div> */}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { search } from "../../store/searchMoviesSlice";
 
 const HomePageContainer = () => {
-  const { data: movies } = useGetPopularMoviesQuery();
+  const { isFetching, data: movies } = useGetPopularMoviesQuery();
 
   const dispatch = useDispatch();
 
@@ -20,7 +20,12 @@ const HomePageContainer = () => {
     searchedMovies?.length === 0 ? movies : searchedMovies;
 
   return (
-    <HomePage movies={moviesToDisplay} onSearch={onSearch} showSearch={true} />
+    <HomePage
+      movies={moviesToDisplay}
+      onSearch={onSearch}
+      showSearch={true}
+      isFetching={isFetching}
+    />
   );
 };
 

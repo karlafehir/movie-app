@@ -8,7 +8,7 @@ import { useState } from "react";
 const ActorsPageContainer = () => {
   const [searchParams, setSearchParams] = useState("");
   const [page, setPage] = useState(1);
-  const { data: actors } = useGetPopularActorsQuery(page);
+  const { isFetching, data: actors } = useGetPopularActorsQuery(page);
 
   const onPageChange = (page) => {
     setPage(page);
@@ -27,6 +27,7 @@ const ActorsPageContainer = () => {
       actors={actorsToDisplay}
       onPageChange={onPageChange}
       onSearch={onSearch}
+      isFetching={isFetching}
     />
   );
 };

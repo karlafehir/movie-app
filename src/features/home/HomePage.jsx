@@ -1,9 +1,13 @@
 import MovieCard from "../../components/cards/MovieCard";
 import { Input } from "antd";
+import Spinner from "../../components/loading/Spinner";
 
-const HomePage = ({ movies, onSearch, showSearch }) => {
+const HomePage = ({ movies, onSearch, showSearch, isFetching }) => {
   const { Search } = Input;
 
+  if (isFetching) {
+    return <Spinner />;
+  }
   return (
     <>
       {showSearch && (

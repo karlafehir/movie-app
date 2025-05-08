@@ -1,9 +1,14 @@
 import ActorCard from "../../components/cards/actorCard";
 import { Pagination } from "antd";
 import { Input } from "antd";
+import Spinner from "../../components/loading/Spinner";
 
-const ActorsPage = ({ actors, onPageChange, onSearch }) => {
+const ActorsPage = ({ actors, onPageChange, onSearch, isFetching }) => {
   const { Search } = Input;
+
+  if (isFetching) {
+    return <Spinner />;
+  }
 
   return (
     <>

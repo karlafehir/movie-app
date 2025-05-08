@@ -1,7 +1,7 @@
 import HomePage from "../home/HomePage";
 import { Radio } from "antd";
-import { Pagination, Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { Pagination } from "antd";
+import Spinner from "../../components/loading/Spinner";
 
 const GenresPage = ({
   movies,
@@ -11,11 +11,7 @@ const GenresPage = ({
   isFetching,
 }) => {
   if (isFetching) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
-      </div>
-    );
+    return <Spinner />;
   }
 
   return (

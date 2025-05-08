@@ -2,9 +2,9 @@ import HomePage from "../home/HomePage";
 import { useGetFavoriteMoviesQuery } from "../../store/movieApiService";
 
 const FavoritesContainer = () => {
-  const { isLoaing, data } = useGetFavoriteMoviesQuery();
+  const { isFetching, data } = useGetFavoriteMoviesQuery();
 
-  return <HomePage movies={data} />;
+  return <HomePage movies={data} isFetching={isFetching} />;
 };
 
 export default FavoritesContainer;
