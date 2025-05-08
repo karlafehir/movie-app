@@ -48,13 +48,14 @@ const MovieDetails = ({ movie, actors, reviews, watchTrailer, isFavorite }) => {
         <div className="font-semibold text-xl pl-3 border-l-4 border-white mt-8">
           Reviews:
         </div>
-        <div className="">
+        <div>
           {reviews &&
             reviews.map((review) => (
               <div key={review.id} className="pb-4">
                 <ReviewCard review={review} />
               </div>
             ))}
+          {reviews.length == 0 && <p className="text-gray-500">No reviews </p>}
         </div>
       </div>
     </>
