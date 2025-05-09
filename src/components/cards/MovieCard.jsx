@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
-    <div className="rounded-xl h-120 w-64">
+    <div className="rounded-xl h-130 w-64">
       <Link to={`/movie/${movie.id}`} className="cursor-pointer">
         <img
-          className="object-cover rounded-lg"
-          src={"https://image.tmdb.org/t/p/original" + movie.poster_path}
+          className="object-cover rounded-lg h-100"
+          src={` ${
+            movie.poster_path
+              ? "https://image.tmdb.org/t/p/original" + movie.poster_path
+              : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"
+          }`}
           alt={movie.title}
         />
       </Link>
