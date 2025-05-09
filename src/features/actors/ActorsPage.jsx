@@ -3,7 +3,13 @@ import { Pagination } from "antd";
 import { Input } from "antd";
 import Spinner from "../../components/loading/Spinner";
 
-const ActorsPage = ({ actors, onPageChange, onSearch, isFetching }) => {
+const ActorsPage = ({
+  actors,
+  onPageChange,
+  onSearch,
+  isFetching,
+  currentPage,
+}) => {
   const { Search } = Input;
 
   if (isFetching) {
@@ -27,7 +33,7 @@ const ActorsPage = ({ actors, onPageChange, onSearch, isFetching }) => {
       </div>
       <Pagination
         align="center"
-        defaultCurrent={1}
+        defaultCurrent={currentPage}
         total={50}
         onChange={onPageChange}
       />

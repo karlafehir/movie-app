@@ -18,7 +18,7 @@ const ActorsPageContainer = () => {
     setSearchParams(value);
   };
 
-  let { data: searchedActors } = useSearchActorsQuery(searchParams);
+  const { data: searchedActors } = useSearchActorsQuery({ searchParams, page });
   const actorsToDisplay =
     searchedActors?.length === 0 ? actors : searchedActors;
 
@@ -28,6 +28,7 @@ const ActorsPageContainer = () => {
       onPageChange={onPageChange}
       onSearch={onSearch}
       isFetching={isFetching}
+      currentPage={page}
     />
   );
 };

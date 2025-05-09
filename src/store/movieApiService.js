@@ -85,8 +85,8 @@ export const movieApi = createApi({
         ),
     }),
     searchActors: builder.query({
-      query: (query) => ({
-        url: `search/person?query=${query}&include_adult=false&language=en-US&page=1`,
+      query: ({ searchParams, page }) => ({
+        url: `search/person?query=${searchParams}&include_adult=false&language=en-US&page=${page}`,
       }),
       transformResponse: (response) => response.results,
     }),
