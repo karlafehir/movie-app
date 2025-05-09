@@ -2,6 +2,7 @@ import {
   DesktopOutlined,
   HeartOutlined,
   StarOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
@@ -21,7 +22,7 @@ const items = [
   },
   {
     key: "/actors",
-    icon: <StarOutlined />,
+    icon: <UserOutlined />,
     label: <Link to="/actors">Actors</Link>,
   },
 ];
@@ -36,6 +37,9 @@ const MenuComponent = () => {
         mode="inline"
         theme="dark"
         items={items}
+        style={{
+          backgroundColor: "#1a1a1a",
+        }}
       />
     </div>
   );
