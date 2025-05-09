@@ -12,7 +12,7 @@ import { useMemo } from "react";
 const MovieDetailsContainer = () => {
   const { movieId } = useParams();
 
-  const { data: movie } = useGetMovieDetailsQuery(movieId);
+  const { isFetching, data: movie } = useGetMovieDetailsQuery(movieId);
   const { data: actors } = useGetMovieActorsQuery(movieId);
   const { data: reviews } = useGetMovieReviewsQuery(movieId);
   const { data: movieTrailer } = useGetMovieTrailerQuery(movieId);
@@ -39,6 +39,7 @@ const MovieDetailsContainer = () => {
       reviews={reviews}
       watchTrailer={watchTrailer}
       isFavorite={isFavorite}
+      isFetching={isFetching}
     />
   );
 };

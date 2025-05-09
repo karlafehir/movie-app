@@ -3,9 +3,21 @@ import MovieCardLarge from "../../components/cards/MovieCardLarge";
 import { useDispatch } from "react-redux";
 import { add } from "../../store/addFavoriteGenreSlice";
 import ReviewCard from "../../components/cards/reviewCard";
+import Spinner from "../../components/loading/Spinner";
 
-const MovieDetails = ({ movie, actors, reviews, watchTrailer, isFavorite }) => {
+const MovieDetails = ({
+  movie,
+  actors,
+  reviews,
+  watchTrailer,
+  isFavorite,
+  isFetching,
+}) => {
   const dispatch = useDispatch();
+
+  if (isFetching) {
+    return <Spinner />;
+  }
 
   return (
     <>
