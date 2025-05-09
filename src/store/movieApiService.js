@@ -96,6 +96,12 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response,
     }),
+    getMoviesForActor: builder.query({
+      query: (actorId) => ({
+        url: `person/${actorId}/movie_credits?language=en-US`,
+      }),
+      transformResponse: (response) => response.cast,
+    }),
   }),
 });
 
@@ -113,4 +119,5 @@ export const {
   useGetPopularActorsQuery,
   useSearchActorsQuery,
   useGetActorDetailsQuery,
+  useGetMoviesForActorQuery,
 } = movieApi;

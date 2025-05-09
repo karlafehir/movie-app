@@ -6,7 +6,7 @@ const ActorCardLarge = ({ actorData }) => {
   return (
     <>
       {actorData && (
-        <div className="rounded-xl w-1/2 bg-white/5 p-6">
+        <div className="rounded-xl bg-white/5 p-6">
           <img
             className="object-cover rounded-lg"
             src={"https://image.tmdb.org/t/p/original" + actorData.profile_path}
