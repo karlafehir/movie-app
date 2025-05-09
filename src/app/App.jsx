@@ -7,6 +7,7 @@ import MovieDetailsContainer from "../features/movieDetails/MovieDetailsContaine
 import { ConfigProvider, theme } from "antd";
 import GenresPageContainer from "../features/genres/GenresPageContainer";
 import ActorsPageContainer from "../features/actors/ActorsPageContainer";
+import ActorDetailsContainer from "../features/actorDetails/ActorDetailsContainer";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
               <Route
                 path="/movie/:movieId"
                 element={<MovieDetailsContainer />}
+              />
+              <Route
+                path="/actor/:actorId"
+                element={<ActorDetailsContainer />}
               />
             </Routes>
           </div>

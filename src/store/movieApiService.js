@@ -90,6 +90,12 @@ export const movieApi = createApi({
       }),
       transformResponse: (response) => response.results,
     }),
+    getActorDetails: builder.query({
+      query: (actorId) => ({
+        url: `person/${actorId}?language=en-US`,
+      }),
+      transformResponse: (response) => response,
+    }),
   }),
 });
 
@@ -106,4 +112,5 @@ export const {
   useGetMovieGenresQuery,
   useGetPopularActorsQuery,
   useSearchActorsQuery,
+  useGetActorDetailsQuery,
 } = movieApi;
