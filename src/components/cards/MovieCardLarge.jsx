@@ -1,15 +1,42 @@
-import { HeartFilled } from "@ant-design/icons";
+import { CheckOutlined, HeartFilled } from "@ant-design/icons";
 import { useAddFavoriteMovieMutation } from "../../store/movieApiService";
 
+import { notification } from "antd";
+
 const MovieCardLarge = ({ movie, watchTrailer, isFavorite }) => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const showNotification = (isFavorite) => {
+    const message = !isFavorite
+      ? "added to favorites"
+      : "removed from favorites";
+    api.open({
+      description: `Movie ${message} successfully!`,
+      top,
+      icon: <CheckOutlined style={{ fontSize: "22px" }} />,
+      closeIcon: false,
+      style: {
+        backgroundColor: "rgb(0,0,0,0.7)",
+        border: "2px solid #ff6c00b3",
+        borderRadius: "8px",
+        color: "#FFFFFF",
+        padding: 12,
+        paddingBottom: 20,
+        top: 20,
+      },
+    });
+  };
+
   const [addFavoriteMovie, { isLoading }] = useAddFavoriteMovieMutation();
 
   const addToFavorites = async () => {
     addFavoriteMovie({ movieId: movie.id, isFavorite: !isFavorite });
+    showNotification(isFavorite);
   };
 
   return (
     <>
+      {contextHolder}
       {movie && (
         <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl p-8 w-full h-120">
           <img
