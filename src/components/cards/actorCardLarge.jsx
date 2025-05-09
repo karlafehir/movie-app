@@ -30,8 +30,11 @@ const ActorCardLarge = ({ actorData }) => {
               {actorData.biography}
             </div>
             <Divider />
-            <div className="font-light">
-              {format(actorData.birthday, "dd.MM.yyyy.")}
+            <div className="flex gap-1">
+              <div className="font-medium">Birthdate: </div>
+              <div className="font-light">
+                {format(actorData.birthday, "dd.MM.yyyy.")}
+              </div>
             </div>
           </div>
         </div>
