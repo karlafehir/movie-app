@@ -1,7 +1,11 @@
 import ActorCardLarge from "../../components/cards/actorCardLarge";
+import Spinner from "../../components/loading/Spinner";
 import HomePage from "../home/HomePage";
 
-const ActorDetails = ({ actorData, actorMovies }) => {
+const ActorDetails = ({ actorData, actorMovies, isFetching }) => {
+  if (isFetching) {
+    return <Spinner />;
+  }
   return (
     <div className="flex">
       <div className="w-1/4">

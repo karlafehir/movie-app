@@ -8,9 +8,15 @@ import ActorDetails from "./ActorDetails";
 const ActorDetailsContainer = () => {
   const { actorId } = useParams();
   const { data: actorData } = useGetActorDetailsQuery(actorId);
-  const { data: actorMovies } = useGetMoviesForActorQuery(actorId);
+  const { isFetching, data: actorMovies } = useGetMoviesForActorQuery(actorId);
 
-  return <ActorDetails actorData={actorData} actorMovies={actorMovies} />;
+  return (
+    <ActorDetails
+      actorData={actorData}
+      actorMovies={actorMovies}
+      isFetching={isFetching}
+    />
+  );
 };
 
 export default ActorDetailsContainer;
