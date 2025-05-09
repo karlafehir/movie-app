@@ -1,5 +1,11 @@
+import ActorCardLarge from "../../components/cards/actorCardLarge";
+
 const ActorDetails = ({ actorData }) => {
-  return <>{actorData && <p>{actorData.name}</p>}</>;
+  return (
+    <>
+      <ActorCardLarge actorData={actorData} />
+    </>
+  );
 };
 
 export default ActorDetails;
